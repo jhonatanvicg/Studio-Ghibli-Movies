@@ -338,7 +338,7 @@ body{
 }
 
 .deleteMovie{
-  z-index: 9999;
+  z-index: 9999999;
   position: absolute;
   width: 30px;
   height: 30px;
