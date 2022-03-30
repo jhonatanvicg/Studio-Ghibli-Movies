@@ -16,24 +16,24 @@ let auxId = ''
 const MovieDetail = ()=>{
   const[prove,setProve] = useState([])
   const router = useRouter()
+  const { getMovieById, movieListIsEmpty, settingDataFromLocalStorage } = useContext(AppContext)
   
-  /* 
+
+
   if(typeof window !== "undefined"){
-    console.log("Cargando componente")
-    const { getMovieById } = useContext(AppContext)
-    
+    const isEmpty = movieListIsEmpty()
+    if(isEmpty == 0){
+      settingDataFromLocalStorage()
+    }  
     movieSelected = getMovieById(router.query.id)
     if(movieSelected == undefined){
       movieSelected =     JSON.parse(localStorage.getItem(router.query.id))
-      auxId = router.query.id
     }
     
   }
-  */
   
   
     useEffect( async()=>{
-      console.log(router.query.id)
       try{
         response = await axios.get(`https://ghibliapi.herokuapp.com/films/${router.query.id}`);
         setProve(response.data)
