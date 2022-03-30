@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 import Movie from "components/Movie";
 import Link from "next/link";
 import AppContext from "context/AppContext"
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 
 
@@ -45,12 +45,19 @@ let scrollRight = ()=>{
 
 const FavoriteMovies = ()=>{
 
-  const { movieListIsEmpty, settingDataFromLocalStorage } = useContext(AppContext)
+
+  const { movieListIsEmpty, settingDataFromLocalStorage, localStorageIsEmpty } = useContext(AppContext)
   const {state:{movieList}} = useContext(AppContext)
+ 
+  if(localStorageIsEmpty()){
+    console.log("estas vacio")
+  }else{
+    console.log("No estas vacio")
+  }
 
   const isEmpty = movieListIsEmpty()
   if(isEmpty == 0){
-    settingDataFromLocalStorage() 
+      settingDataFromLocalStorage()
   }
 
   return(
@@ -62,27 +69,47 @@ const FavoriteMovies = ()=>{
             <p>Your Favorite Movies</p>
             <img src="/images/lover.png" alt="" />
           </div>
-          <div className="FavoriteMovies__List">
-            <div className="Navigator__Left" onClick={()=>scrollLeft()}>
-              <img src="images/right.png" alt="" />
-            </div>
-            <div className="Navigator__Right" onClick={()=>scrollRight()}>
-              <img src="images/right.png" alt="" />
-            </div>
-            <div className="List__Container">
-             
-             {
-               movieList.map(movie=>{
-                 return(
-                  
-                        <Movie  movieInfo={movie} key={movie.id}/>
-                     
-                 )
-                 })
-             }
 
+          {
+             localStorageIsEmpty() ?
+
+
+             <div className="FavoriteMovies__List">
+                <div className="List__Container">
+                  <div className="Container__Empty">
+                    <img src="/images/empty.png" alt="" />
+                    <p>Your Favorite List is Empty</p>
+                  </div>
+                </div>
+              </div>
+         :
+
+              <div className="FavoriteMovies__List">
+              <div className="Navigator__Left" onClick={()=>scrollLeft()}>
+                <img src="images/right.png" alt="" />
+              </div>
+              <div className="Navigator__Right" onClick={()=>scrollRight()}>
+                <img src="images/right.png" alt="" />
+              </div>
+              <div className="List__Container">
+                {
+                  movieList.map(movie=>{
+                    return(
+                      
+                            <Movie  movieInfo={movie} key={movie.id}/>
+                        
+                    )
+                    })
+
+                }
+              </div>
             </div>
-          </div>
+         
+          }
+
+
+
+          
         </div>
       </div>
       <Footer />

@@ -61,10 +61,56 @@ const useInitialState =()=>{
             movieList: temporaryArray
           })
       }
+    }
+  }
 
 
-      
+  const browserDetect = ()=>{
+    let userAgent = navigator.userAgent;
+    let browserName;
+    
+    if(userAgent.match(/chrome|chromium|crios/i)){
+        browserName = "chrome";
+      }else if(userAgent.match(/firefox|fxios/i)){
+        browserName = "firefox";
+      }  else if(userAgent.match(/safari/i)){
+        browserName = "safari";
+      }else if(userAgent.match(/opr\//i)){
+        browserName = "opera";
+      } else if(userAgent.match(/edg/i)){
+        browserName = "edge";
+      }else{
+        browserName="No browser detection";
+      }
 
+
+      return browserName
+  }
+
+
+  const localStorageIsEmpty = ()=>{
+    let browserName = '';
+    let emptyLocal = false;
+    if (typeof window !== "undefined") {
+      console.log("Entrando a la valuacion de navegador")
+      browserName = browserDetect()
+      console.log("BROWSER NAME: ", browserName)
+      switch(browserName){
+        case 'firefox':
+          if(localStorage.length == 1){
+            emptyLocal = true
+          }
+        break;
+        case 'chrome':
+          if(localStorage.length == 0){
+            emptyLocal = true
+          }
+        break;
+        default:
+          emptyLocal = false;
+        break;
+      }  
+      return emptyLocal
     }
   }
 
@@ -98,6 +144,7 @@ const useInitialState =()=>{
     removeFromMovieList,
     movieListIsEmpty,
     settingDataFromLocalStorage,
+    localStorageIsEmpty,
     actualMovieData,
     getMovieById,
     setMovieData,
