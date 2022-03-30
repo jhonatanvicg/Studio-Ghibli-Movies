@@ -531,7 +531,7 @@ body{
 }
 
 .Navigator__Left img{
-  rotate: 180deg;
+  transform: rotate(180deg);
   width: 30px;
   height: 30px;
 }
