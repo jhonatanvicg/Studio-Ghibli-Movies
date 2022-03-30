@@ -37,7 +37,6 @@ const MovieDetail = ()=>{
       try{
         response = await axios.get(`https://ghibliapi.herokuapp.com/films/${router.query.id}`);
         setProve(response.data)
-        console.log("Este es el prove: ",prove.data)
       }catch(error){
       }
      },[router.query.id])
