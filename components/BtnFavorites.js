@@ -13,7 +13,7 @@ const BtnFavorites = ({dataMovie})=>{
   const verifyingButtonText = (dataMovie)=>{
     let isInFavoriteList = ifExist(dataMovie.id)
     if(isInFavoriteList){
-      buttonText = "In Wish List"
+      buttonText = "In Favorites List"
     }else{
       buttonText = "Add to Favorite Movies"
     }
