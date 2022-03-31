@@ -163,8 +163,8 @@ body{
 }
 
 .btn__Primary{
+  min-width: 150px;
   cursor: pointer;
-  width: 155px;
   border-radius: 5px;
   display: flex;
   background: #E9460C;
@@ -180,12 +180,15 @@ body{
 }
 
 .btn__Primary--Outline{ 
-  width: 250px;
+  min-width: 250px;
   background: none;
   border: 2px solid #E9460C;
 }
 
-
+.btn__Primary--Outline p{ 
+  margin-right: 5px;
+  padding: 0 5px;
+}
 
 
 @media (max-width: 1200px) {
@@ -858,6 +861,17 @@ body{
 
 }
 
+@media (max-width: 700px) {
+
+  .Banner__InfoMovie--Buttons-Containers{
+    margin-top: 15px;
+    height: 250px;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}
+
+
 @media (max-width: 900px) {
   .Footer p{
     display: none;
@@ -970,16 +984,6 @@ body{
 
 }
 
-
-@media (max-width: 400px) {
-
-  .Banner__InfoMovie--Buttons-Containers{
-      margin-top: 15px;
-      height: 250px;
-      flex-direction: column;
-      justify-content: space-around;
-    }
-}
 
 
 @media (max-width: 300) {
