@@ -92,9 +92,7 @@ const useInitialState =()=>{
     let browserName = '';
     let emptyLocal = false;
     if (typeof window !== "undefined") {
-      console.log("Entrando a la valuacion de navegador")
       browserName = browserDetect()
-      console.log("BROWSER NAME: ", browserName)
       switch(browserName){
         case 'firefox':
           if(localStorage.length == 1){

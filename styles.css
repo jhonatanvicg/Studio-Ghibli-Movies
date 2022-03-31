@@ -277,7 +277,7 @@ body{
     justify-content: center !important;
   }
 
-  }
+}
 
 .Main{
   width: 100%;
@@ -498,6 +498,13 @@ body{
   display: flex;
 }
 
+.List__Container--Empty{
+  overflow: auto;
+  position: relative;
+  width: 90%;
+  display: flex;
+}
+
 .Container__Empty{
   margin: 0 auto;
   width: 300px;
@@ -506,6 +513,10 @@ body{
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  
+}
+
+.Container__Empty p{
   font-weight: 600;
   color: white;
   font-size: 1.2rem;
@@ -513,10 +524,48 @@ body{
 }
 
 
-.Container__Empty img{
+.Empty__Image{
   object-fit: contain;
   width: 50%;
   height: 50%;
+}
+
+
+.Navigator__Left{
+  cursor: pointer;
+  z-index: 9999;
+  position: absolute;
+  top: 45%;
+  left: 15px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+}
+
+
+.Left__Image{
+  transform: rotate(180deg);
+  width: 30px;
+  height: 30px;
+}
+
+.Navigator__Right{
+  cursor: pointer;
+  z-index: 9999;
+  position: absolute;
+  top: 45%;
+  right: 15px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Right__Image{
+  width: 30px;
+  height: 30px;
 }
 
 .Movie--Favorite{
@@ -539,50 +588,6 @@ body{
 }
 
 
-.Navigator__Left{
-  cursor: pointer;
-  z-index: 9999;
-  position: absolute;
-  top: 45%;
-  left: 15px;
-  border-radius: 50%;
-  background: white;
-  display: flex;
-  align-items: center;
-}
-
-.Navigator__Left img{
-  transform: rotate(180deg);
-  width: 30px;
-  height: 30px;
-}
-
-.Navigator__Right{
-  cursor: pointer;
-  z-index: 9999;
-  position: absolute;
-  top: 45%;
-  right: 15px;
-  border-radius: 50%;
-  background: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.Navigator__Right img{
-  width: 30px;
-  height: 30px;
-}
-
-
-.Navigator__Right--Disabled{
-  display: none !important;
-}
-
-.Navigator__Left--Disabled{
-  display: none !important;
-}
 
 
 

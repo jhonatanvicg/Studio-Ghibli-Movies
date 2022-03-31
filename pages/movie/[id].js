@@ -43,7 +43,6 @@ const MovieDetail = ()=>{
 
 
   return(
-    <>
       <div className="Container__Detail">
         <Banner pathNow="Movie" bannerMovieSelected={prove.movie_banner} />
         <div className="MovieDetail__Container">
@@ -105,7 +104,6 @@ const MovieDetail = ()=>{
           </div>
         </div>
       </div>
-    </>
   )
 
 }
